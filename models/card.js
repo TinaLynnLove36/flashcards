@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 
-
 const cardSchema = new mongoose.Schema({
     question: { type: String, required: true, minlength: 1, maxlength: 200 },
     answer: {type: String, required: true }, 
 
 });
-
 const Card = mongoose.model('Card', cardSchema);
 
 function validateCard(card) {
@@ -17,6 +15,5 @@ function validateCard(card) {
   });
   return schema.validate(card);
 }
-
 exports.Card = Card;
 exports.validate = validateCard;
