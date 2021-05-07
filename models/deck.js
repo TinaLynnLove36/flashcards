@@ -13,10 +13,11 @@ const Deck = mongoose.model('Deck', deckSchema);
 
 function validateDeck(deck) {
   const schema = Joi.object({
-    title: Joi.string().min(1).required(),
+    name: Joi.string().min(1).required(),
+    subject: Joi.string().min(1).required()
   });
   return schema.validate(deck);
 }
 
 exports.Deck = Deck;
-exports.validate = validateDeck;
+exports.validateDeck = validateDeck;
